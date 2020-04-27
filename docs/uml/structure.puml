@@ -1,0 +1,27 @@
+@startuml
+
+class Operation {
+    Component component;
+    String interfaceName;
+    String requestClass;
+    String responseClass;
+}
+
+class Component {
+    String packageName;
+    String directory;
+}
+
+interface OperationRenderer {
+    String render(Operation operation);
+}
+
+interface OperationCreator {
+    void create(Operation operation);
+}
+
+interface ComponentCreator {
+    void create(Component component, List<Operation> operations);
+}
+
+@enduml
