@@ -21,7 +21,7 @@ final class {operationName}Controller
 
     public function actionGetList(Request $request): Response
     {
-        $response = $this->operation->invoke($this->createRequest());
+        $response = $this->operation->invoke($this->createRequest($request));
         //TODO implementation
     }
 
