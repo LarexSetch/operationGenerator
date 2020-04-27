@@ -33,7 +33,7 @@ public class BaseFileCreator implements FileCreator {
     private String getFilepath(Operation operation, ElementType type) {
         switch (type) {
             case CONTROLLER:
-                return getControllerDirectory(operation) + operation.getName() + ".php";
+                return getControllerDirectory(operation) + operation.getName() + "Controller.php";
             case INTERFACE:
                 return getOperationDirectory(operation) + operation.getName() + "Interface.php";
             case REQUEST_DTO:
