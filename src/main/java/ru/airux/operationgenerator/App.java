@@ -22,8 +22,7 @@ public class App {
     private static OperationCreator getOperationCreator(String projectDirectory) {
         return
                 new BaseOperationCreator(
-                        new BaseRendererFactory(),
-                        new BaseTemplateResolver(),
+                        new BaseRendererFactory(new BaseTemplateResolver()),
                         new BaseCharWriterFactory(
                                 new BaseFileCreator(
                                         System.getProperty("file.separator"),

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace {package}\{operationName}\Dto;
+namespace {operationPackage}\Dto;
 
-class {responseClassName}
+class {operationName}Response
 {
 }
 

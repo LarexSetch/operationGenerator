@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace {package}\{operationName};
+namespace {operationPackage};
 
-use {package}\{operationName}\Dto\{operationName}Request;
-use {package}\{operationName}\Dto\{operationName}Response;
+use {operationPackage}\Dto\{operationName}Request;
+use {operationPackage}\Dto\{operationName}Response;
 
-interface {interfaceName}
+interface {operationName}Interface
 {
     public function invoke({operationName}Request $request): {operationName}Response;
 }

@@ -5,11 +5,13 @@ import lombok.Getter;
 
 @Getter
 public class Component {
-    String packageName;
-    String directory;
+    String name;
+    String sourceDirectory;
+    String packagePrefix;
 
-    public Component(String packageName, String directory) {
-        this.packageName = packageName;
-        this.directory = directory;
+    public Component(String name, String sourceDirectory, String packagePrefix) {
+        this.name = name;
+        this.sourceDirectory = sourceDirectory;
+        this.packagePrefix = packagePrefix;
     }
 }

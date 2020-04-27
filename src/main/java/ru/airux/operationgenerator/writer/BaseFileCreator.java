@@ -32,18 +32,28 @@ public class BaseFileCreator implements FileCreator {
 
     private String getFilepath(Operation operation, ElementType type) {
         switch (type) {
+            case CONTROLLER:
+                return getControllerDirectory(operation) + operation.getName() + ".php";
             case INTERFACE:
-                return getDirectory(operation) + operation.getInterfaceName() + ".php";
+                return getOperationDirectory(operation) + operation.getName() + "Interface.php";
             case REQUEST_DTO:
-                return getDirectory(operation) + "Dto" + fileSeparator + operation.getRequestClass() + ".php";
+                return getDtoDirectory(operation) + operation.getName() + "Request.php";
             case RESPONSE_DTO:
-                return getDirectory(operation) + "Dto" + fileSeparator + operation.getResponseClass() + ".php";
+                return getDtoDirectory(operation) + operation.getName() + "Response.php";
             default:
                 throw new RuntimeException("Cannot resolve filepath unsupported type " + type.toString());
         }
     }
 
-    private String getDirectory(Operation operation) {
-        return directoryName + fileSeparator + operation.getComponent().getDirectory() + fileSeparator + operation.getName() + fileSeparator;
+    private String getDtoDirectory(Operation operation) {
+        return getOperationDirectory(operation) + "Dto" + fileSeparator;
+    }
+
+    private String getOperationDirectory(Operation operation) {
+        return directoryName + fileSeparator + operation.getComponent().getSourceDirectory() + fileSeparator + "Operation" + fileSeparator + operation.getComponent().getName() + fileSeparator + operation.getName() + fileSeparator;
+    }
+
+    private String getControllerDirectory(Operation operation) {
+        return directoryName + fileSeparator + operation.getComponent().getSourceDirectory() + fileSeparator + "Controller" + fileSeparator + operation.getComponent().getName() + fileSeparator;
     }
 }

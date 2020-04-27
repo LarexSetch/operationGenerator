@@ -18,15 +18,17 @@ public class PhpRenderer implements Renderer {
         try {
             return
                     IOUtils.toString(stream)
-                            .replace("{package}", operation.getComponent().getPackageName())
-                            .replace("{operationName}", operation.getName())
-                            .replace("{requestClassName}", operation.getRequestClass())
-                            .replace("{responseClassName}", operation.getResponseClass())
-                            .replace("{interfaceName}", operation.getInterfaceName());
+                            .replace("{componentName}", operation.getComponent().getName())
+                            .replace("{operationPackage}", getOperationPackage(operation))
+                            .replace("{operationName}", operation.getName());
         } catch (IOException exception) {
             exception.printStackTrace();
 
             throw new RuntimeException("Cannot render");
         }
+    }
+
+    private String getOperationPackage(Operation operation) {
+        return operation.getComponent().getPackagePrefix() + "\\Operation\\" + operation.getComponent().getName() + "\\" + operation.getName();
     }
 }

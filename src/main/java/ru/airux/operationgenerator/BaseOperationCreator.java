@@ -9,12 +9,10 @@ import java.util.stream.Stream;
 
 public class BaseOperationCreator implements OperationCreator {
     private final RendererFactory rendererFactory;
-    private final TemplateResolver templateResolver;
     private final CharWriterFactory charWriterFactory;
 
-    public BaseOperationCreator(RendererFactory rendererFactory, TemplateResolver templateResolver, CharWriterFactory charWriterFactory) {
+    public BaseOperationCreator(RendererFactory rendererFactory, CharWriterFactory charWriterFactory) {
         this.rendererFactory = rendererFactory;
-        this.templateResolver = templateResolver;
         this.charWriterFactory = charWriterFactory;
     }
 
@@ -23,9 +21,8 @@ public class BaseOperationCreator implements OperationCreator {
         Stream.of(ElementType.toArray())
                 .forEach(templateType ->
                         rendererFactory
-                                .create(templateResolver.resolve(templateType))
+                                .create(templateType)
                                 .render(operation)
-
                                 .chars()
                                 .forEach(c ->
                                         charWriterFactory
