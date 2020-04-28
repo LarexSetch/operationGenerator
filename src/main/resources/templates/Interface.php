@@ -7,11 +7,8 @@ namespace {operationPackage};
 use {operationPackage}\Dto\{operationName}Request;
 use {operationPackage}\Dto\{operationName}Response;
 
-final class {operationName}
+interface {operationName}Interface
 {
-    public function invoke({operationName}Request $request): {operationName}Response
-    {
-        //TODO implementation
-    }
+    public function invoke({operationName}Request $request): {operationName}Response;
 }
 

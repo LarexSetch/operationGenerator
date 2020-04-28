@@ -36,6 +36,8 @@ public class BaseFileCreator implements FileCreator {
                 return getControllerDirectory(operation) + operation.getName() + "Controller.php";
             case INTERFACE:
                 return getOperationDirectory(operation) + operation.getName() + "Interface.php";
+            case OPERATION:
+                return getOperationDirectory(operation) + operation.getName() + ".php";
             case REQUEST_DTO:
                 return getDtoDirectory(operation) + operation.getName() + "Request.php";
             case RESPONSE_DTO:

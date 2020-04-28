@@ -9,6 +9,8 @@ public class BaseTemplateResolver implements TemplateResolver {
             case CONTROLLER:
                 return "templates/Controller.php";
             case INTERFACE:
+                return "templates/Interface.php";
+            case OPERATION:
                 return "templates/Operation.php";
             case REQUEST_DTO:
                 return "templates/RequestDto.php";
