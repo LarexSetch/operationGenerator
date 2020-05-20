@@ -30,7 +30,7 @@ public class PhpRenderer implements Renderer {
     }
 
     private String getControllerPackage(Operation operation) {
-        return operation.getComponent().getPackagePrefix() + "\\Controller\\" + operation.getName();
+        return operation.getComponent().getPackagePrefix() + "\\Controller";
     }
     private String getOperationPackage(Operation operation) {
         return operation.getComponent().getPackagePrefix() + "\\Operation\\" + operation.getComponent().getName() + "\\" + operation.getName();

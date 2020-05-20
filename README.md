@@ -20,3 +20,12 @@ java -jar build/libs/ru.airux.operationgenerator-1.0-SNAPSHOT.jar \
   --operation Restore
 ```
 
+## Arguments
+
+```shell script
+--source-dir - папка с исходниками
+--project-dir - корневая папка проекта (может относительная и асолютная)
+--package-prefix - это основной неймспейс
+--component-name - название сущности
+--operation - название операции
+```
